@@ -3,8 +3,9 @@ name: merge CI
 on: [ pull request ]
   jobs:
     test:
-      runs-on: ubuntu-latest windows-latest macos-latest 
-  steps:
-  -uses: actions/checkout@v2
-  -run: echo "this job was automatically triggered by ${{github.event_name}}event."
-  -run: run python main.py 
+      runs-on: ${{matrix.os}}
+  strategy:
+  -os: [macos-latest ubuntu-latest windown-latest]
+   -steps:
+   - uses: actions/checkout@v2
+   - run: run python main.py 
