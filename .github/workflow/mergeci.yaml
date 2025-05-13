@@ -1,0 +1,11 @@
+
+name: merge CI
+on: [ pull request ]
+  jobs:
+    test:
+      runs-on: ${{matrix.os}}
+  strategy:
+  -os: [macos-latest ubuntu-latest windown-latest]
+   -steps:
+   - uses: actions/checkout@v2
+   - run: run python main.py 
